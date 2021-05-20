@@ -4,7 +4,8 @@
   "description": "A health and wellness application that tracks daily workouts and uses a Mongo database.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/vruss14/fitness-tracker/issues"
   },
-  "homepage": "https://github.com/vruss14/fitness-tracker#readme"
+  "homepage": "https://github.com/vruss14/fitness-tracker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.10",
+    "morgan": "^1.10.0"
+  }
 }
