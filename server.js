@@ -15,13 +15,12 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitness-tracker", {
-//   useNewUrlParser: true,
-//   useFindAndModify: false,
-//   useCreateIndex: true,
-//   useUnifiedTopology: true
-// });
-
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitness-tracker", {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useCreateIndex: true,
+  useUnifiedTopology: true
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on: http://localhost:${PORT}/ \n`);
