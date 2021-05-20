@@ -1,0 +1,20 @@
+{
+  "name": "fitness-tracker",
+  "version": "1.0.0",
+  "description": "A health and wellness application that tracks daily workouts and uses a Mongo database.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vruss14/fitness-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vruss14/fitness-tracker/issues"
+  },
+  "homepage": "https://github.com/vruss14/fitness-tracker#readme"
+}
