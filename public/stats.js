@@ -1,5 +1,6 @@
 function calculateTotalWeight(data) {
   const totals = [];
+  // console.log(data);
 
   data.forEach((workout) => {
     const workoutTotal = workout.exercises.reduce((total, { type, weight }) => {
@@ -16,21 +17,34 @@ function calculateTotalWeight(data) {
 }
 
 function populateChart(data) {
-  const durations = data.map(({ totalDuration }) => totalDuration);
+
+  // Each workout can have multiple exercises
+  // A workout is the sum of the duration of all the exercises in it
+
+  const durationArr = [];
+
+  data.forEach((workout) => {
+    const durationTotal = workout.exercises.reduce((total, { duration }) => {
+      return total + duration;
+    }, 0);
+
+  durationArr.push(durationTotal);
+  });
+
   const pounds = calculateTotalWeight(data);
 
   const line = document.querySelector('#canvas').getContext('2d');
   const bar = document.querySelector('#canvas2').getContext('2d');
 
-  const labels = data.map(({ day }) => {
-    const date = new Date(day);
+  const labels = data.map(({ date }) => {
+    const dateValue = new Date(date);
 
     // Use JavaScript's `Intl` object to help format dates
     return new Intl.DateTimeFormat('en-US', {
       weekday: 'short',
       month: 'short',
       day: 'numeric',
-    }).format(date);
+    }).format(dateValue);
   });
 
   let lineChart = new Chart(line, {
@@ -42,7 +56,7 @@ function populateChart(data) {
           label: 'Workout Duration In Minutes',
           backgroundColor: 'red',
           borderColor: 'red',
-          data: durations,
+          data: durationArr,
           fill: false,
         },
       ],
