@@ -4,6 +4,9 @@ const path = require('path');
 // Status codes will be 304 if the static HTML pages have not changed since the user last visited
 // Otherwise, status codes will be 200 or 500
 
+
+// The home screen
+
 router.get('/', async (req, res) => {
     try {
         res.status(200).sendFile(path.join(__dirname,"../public/index.html"));
@@ -13,6 +16,8 @@ router.get('/', async (req, res) => {
     }
   });
 
+// The exercise page (to add/update)
+
 router.get('/exercise', async (req, res) => {
     try {
         res.status(200).sendFile(path.join(__dirname,"../public/exercise.html"));
@@ -21,6 +26,8 @@ router.get('/exercise', async (req, res) => {
       console.log(err);
     }
 });
+
+// The user's dashboard
 
 router.get('/stats', async (req, res) => {
     try {

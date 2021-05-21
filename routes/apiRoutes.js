@@ -2,6 +2,8 @@ const router = require('express').Router();
 const mongojs = require("mongojs");
 const Workout = require("../models/workout.js");
 
+// For the initial creation of a workout
+
 router.post("/workouts", ({ body }, res) => {
     Workout.create(body)
     .then(dbWorkout => {
@@ -13,6 +15,8 @@ router.post("/workouts", ({ body }, res) => {
     });
   });
   
+// To see all workouts
+
 router.get("/workouts", (req, res) => {
     Workout.find({})
       .then(dbWorkout => {
@@ -23,6 +27,8 @@ router.get("/workouts", (req, res) => {
         console.log(err)
       });
 });
+
+// Workouts that are displayed in the user's dashboard (last seven workouts)
 
 router.get("/workouts/range", (req, res) => {
     Workout.find({})
@@ -35,6 +41,8 @@ router.get("/workouts/range", (req, res) => {
       });
 });
 
+// Retrieving a particular workout by ID
+
 router.get("/workouts/:id", (req, res) => {
     Workout.findOne({ _id: mongojs.ObjectId(req.params.id) })
       .then(dbWorkout => {
@@ -45,6 +53,8 @@ router.get("/workouts/:id", (req, res) => {
         console.log(err)
       });
 });
+
+// Updating a workout with exercises
 
 router.put("/workouts/:id", (req, res) => {
     Workout.findOneAndUpdate({ _id: mongojs.ObjectId(req.params.id) },

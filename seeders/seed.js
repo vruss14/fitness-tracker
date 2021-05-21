@@ -8,6 +8,9 @@ mongoose.connect('mongodb://localhost/fitness-tracker', {
   useUnifiedTopology: true,
 });
 
+// Each seed contains an exercise, as well as a date and formatted date
+// The seed dates are relative to today's date
+
 const workoutSeed = [
   {
     date: new Date(new Date().setDate(new Date().getDate() - 9)),
@@ -135,8 +138,10 @@ const workoutSeed = [
   },
 ];
 
+// deleteMany will remove the workoutSeeds (if they have already been added to the database) before then inserting them to avoid duplicates
+
 Workout.deleteMany({})
-  .then(() => Workout.collection.insertMany(workoutSeed))
+  .then(() => Workout.collection.insertMany(workoutSeed)) // Workout.collection is important syntax here to ensure the records are inserted properly
   .then((data) => {
     console.log(data.result.n + ' records inserted!');
     process.exit(0);

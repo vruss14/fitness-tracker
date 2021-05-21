@@ -8,6 +8,7 @@ const API = {
     }
     const json = await res.json();
 
+    // json.length - 1 is the very last item in the workouts array (i.e. the most recent)
     return json[json.length - 1];
   },
   async addExercise(data) {
@@ -35,6 +36,7 @@ const API = {
     return json;
   },
 
+  // This is the function used to get the data needed for the user's dashboard
   async getWorkoutsInRange() {
     const res = await fetch(`/api/workouts/range`);
     const json = await res.json();

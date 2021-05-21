@@ -1,6 +1,7 @@
 function calculateTotalWeight(data) {
   const totals = [];
 
+  // Sums up the total weight for each workout so that it can be displayed properly in the bar graph
   data.forEach((workout) => {
     const workoutTotal = workout.exercises.reduce((total, { type, weight }) => {
       if (type === 'resistance') {
@@ -35,6 +36,7 @@ function populateChart(data) {
   const line = document.querySelector('#canvas').getContext('2d');
   const bar = document.querySelector('#canvas2').getContext('2d');
 
+  // "date" matches the date in the Workout model
   const labels = data.map(({ date }) => {
     const dateValue = new Date(date);
 
