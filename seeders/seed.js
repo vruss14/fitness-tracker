@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-const db = require('../models');
+const Workout = require('../models/workout.js');
+const moment = require('moment');
 
-mongoose.connect('mongodb://localhost/workout', {
+mongoose.connect('mongodb://localhost/fitness-tracker', {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
@@ -9,7 +10,8 @@ mongoose.connect('mongodb://localhost/workout', {
 
 const workoutSeed = [
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 9)),
+    date: new Date(new Date().setDate(new Date().getDate() - 9)),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'resistance',
@@ -22,7 +24,8 @@ const workoutSeed = [
     ],
   },
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 8)),
+    date: new Date(new Date().setDate(new Date().getDate() - 8)),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'resistance',
@@ -35,7 +38,8 @@ const workoutSeed = [
     ],
   },
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 7)),
+    date: new Date(new Date().setDate(new Date().getDate() - 7)),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'), 
     exercises: [
       {
         type: 'resistance',
@@ -48,7 +52,8 @@ const workoutSeed = [
     ],
   },
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 6)),
+    date: new Date(new Date().setDate(new Date().getDate() - 6)),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'cardio',
@@ -59,7 +64,8 @@ const workoutSeed = [
     ],
   },
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 5)),
+    date: new Date(new Date().setDate(new Date().getDate() - 5)),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'resistance',
@@ -72,7 +78,8 @@ const workoutSeed = [
     ],
   },
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 4)),
+    date: new Date(new Date().setDate(new Date().getDate() - 4)),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'resistance',
@@ -85,7 +92,8 @@ const workoutSeed = [
     ],
   },
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 3)),
+    date: new Date(new Date().setDate(new Date().getDate() - 3)),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'resistance',
@@ -98,7 +106,8 @@ const workoutSeed = [
     ],
   },
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 2)),
+    date: new Date(new Date().setDate(new Date().getDate() - 2)),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'resistance',
@@ -111,7 +120,8 @@ const workoutSeed = [
     ],
   },
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 1)),
+    date: new Date(new Date().setDate(new Date().getDate() - 1)),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'resistance',
@@ -125,8 +135,8 @@ const workoutSeed = [
   },
 ];
 
-db.Workout.deleteMany({})
-  .then(() => db.Workout.collection.insertMany(workoutSeed))
+Workout.deleteMany({})
+  .then(() => Workout.collection.insertMany(workoutSeed))
   .then((data) => {
     console.log(data.result.n + ' records inserted!');
     process.exit(0);
