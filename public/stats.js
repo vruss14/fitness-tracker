@@ -1,6 +1,5 @@
 function calculateTotalWeight(data) {
   const totals = [];
-  // console.log(data);
 
   data.forEach((workout) => {
     const workoutTotal = workout.exercises.reduce((total, { type, weight }) => {
@@ -121,5 +120,5 @@ function populateChart(data) {
   });
 }
 
-// get all workout data from back-end
+// Get all workout data from the back-end of the site
 API.getWorkoutsInRange().then(populateChart);

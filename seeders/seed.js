@@ -25,7 +25,7 @@ const workoutSeed = [
   },
   {
     date: new Date(new Date().setDate(new Date().getDate() - 8)),
-    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 8))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'resistance',
@@ -39,7 +39,7 @@ const workoutSeed = [
   },
   {
     date: new Date(new Date().setDate(new Date().getDate() - 7)),
-    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'), 
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 7))).format('MMMM Do YYYY'), 
     exercises: [
       {
         type: 'resistance',
@@ -53,7 +53,7 @@ const workoutSeed = [
   },
   {
     date: new Date(new Date().setDate(new Date().getDate() - 6)),
-    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 6))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'cardio',
@@ -65,7 +65,7 @@ const workoutSeed = [
   },
   {
     date: new Date(new Date().setDate(new Date().getDate() - 5)),
-    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 5))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'resistance',
@@ -79,7 +79,7 @@ const workoutSeed = [
   },
   {
     date: new Date(new Date().setDate(new Date().getDate() - 4)),
-    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 4))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'resistance',
@@ -93,7 +93,7 @@ const workoutSeed = [
   },
   {
     date: new Date(new Date().setDate(new Date().getDate() - 3)),
-    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 3))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'resistance',
@@ -107,7 +107,7 @@ const workoutSeed = [
   },
   {
     date: new Date(new Date().setDate(new Date().getDate() - 2)),
-    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 2))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'resistance',
@@ -121,7 +121,7 @@ const workoutSeed = [
   },
   {
     date: new Date(new Date().setDate(new Date().getDate() - 1)),
-    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 9))).format('MMMM Do YYYY'),
+    formatted_date: moment(new Date(new Date().setDate(new Date().getDate() - 1))).format('MMMM Do YYYY'),
     exercises: [
       {
         type: 'resistance',

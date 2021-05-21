@@ -6,7 +6,6 @@ router.post("/workouts", ({ body }, res) => {
     Workout.create(body)
     .then(dbWorkout => {
         res.status(200).json(dbWorkout);
-        console.log(dbWorkout);
     })
     .catch(err => {
         res.status(400).json(err);
@@ -40,7 +39,6 @@ router.get("/workouts/:id", (req, res) => {
     Workout.findOne({ _id: mongojs.ObjectId(req.params.id) })
       .then(dbWorkout => {
         res.status(200).json(dbWorkout);
-        console.log(dbWorkout)
       })
       .catch(err => {
         res.status(400).json(err);
@@ -54,7 +52,6 @@ router.put("/workouts/:id", (req, res) => {
         { new: true })
       .then(dbWorkout => {
         res.status(200).json(dbWorkout);
-        console.log(dbWorkout)
       })
       .catch(err => {
         res.status(400).json(err);
