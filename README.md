@@ -42,7 +42,7 @@ A few ideas for future development include:
             
 ## Installation
 
-The application can be viewed live on Heroku here:
+The application can be viewed live on Heroku here: https://fitness-tracker-13.herokuapp.com/
 
 For this application to run correctly on your local machine, run ```npm init -y ``` in the working directory of your choice. Next, install the relevant dependencies by running ```npm i```. Alternatively, you can install the dependencies one at a time. Please note that it may take a few minutes for all dependencies to download on your local machine.
 
@@ -54,11 +54,17 @@ Run ```npm start``` to start the application. This application runs locally at p
 
 A view of the home page:
 
-<!-- ![homepage](assets/homepage-screenshot-full.png) -->
+![homepage](images/fitness-home-screen.png)
 
 An view of adding an exercise/workout:
 
+![add exercise/workout page](images/add-workout-screen.png)
+
+
 A view of the dashboard:
+
+![view stats page](images/workout-stats-screen.png)
+
 
 ## Usage
 
