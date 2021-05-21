@@ -32,7 +32,7 @@ function tallyExercises(exercises) {
     if (curr.type === "resistance") {
       acc.totalWeight = (acc.totalWeight || 0) + curr.weight;
       acc.totalSets = (acc.totalSets || 0) + curr.sets;
-      acc.totalReps = (acc.totalReps || 0) + curr.reps;
+      acc.totalReps = (acc.totalSets || 0) * curr.reps;
     } else if (curr.type === "cardio") {
       acc.totalDistance = (acc.totalDistance || 0) + curr.distance;
     }
@@ -64,9 +64,14 @@ function renderWorkoutSummary(summary) {
 
     // The last workout may or may not include distance (i.e. it could be a resistance workout)
     // But if it does include distance, this modifies the textNode to include units
+    // The same holds true for totalWeight
 
     if (key === 'totalDistance') {
       textNode = document.createTextNode(`: ${summary[key]} miles`);
+    }
+
+    if (key === 'totalWeight') {
+      textNode = document.createTextNode(`: ${summary[key]} pounds`);
     }
 
     p.appendChild(strong);
