@@ -7,9 +7,9 @@ async function initWorkout() {
       .setAttribute("href", `/exercise?id=${lastWorkout._id}`);
 
     const workoutSummary = {
-      date: formatDate(lastWorkout.day),
-      totalDuration: lastWorkout.totalDuration,
-      numExercises: lastWorkout.exercises.length,
+      date: lastWorkout.formatted_date,
+      duration: `${lastWorkout.exercises[0].duration} minutes`,
+      numExercises: `${lastWorkout.exercises.length} (${lastWorkout.exercises[0].type})`,
       ...tallyExercises(lastWorkout.exercises)
     };
 
@@ -33,23 +33,12 @@ function tallyExercises(exercises) {
   return tallied;
 }
 
-function formatDate(date) {
-  const options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric"
-  };
-
-  return new Date(date).toLocaleDateString(options);
-}
-
 function renderWorkoutSummary(summary) {
   const container = document.querySelector(".workout-stats");
 
   const workoutKeyMap = {
     date: "Date",
-    totalDuration: "Total Workout Duration",
+    duration: "Total Workout Duration",
     numExercises: "Exercises Performed",
     totalWeight: "Total Weight Lifted",
     totalSets: "Total Sets Performed",
@@ -58,11 +47,19 @@ function renderWorkoutSummary(summary) {
   };
 
   Object.keys(summary).forEach(key => {
+
     const p = document.createElement("p");
     const strong = document.createElement("strong");
 
     strong.textContent = workoutKeyMap[key];
-    const textNode = document.createTextNode(`: ${summary[key]}`);
+    let textNode = document.createTextNode(`: ${summary[key]}`);
+
+    // The last workout may or may not include distance (i.e. it could be a resistance workout)
+    // But if it does include distance, this modifies the textNode to include units
+
+    if (key === 'totalDistance') {
+      textNode = document.createTextNode(`: ${summary[key]} miles`);
+    }
 
     p.appendChild(strong);
     p.appendChild(textNode);
